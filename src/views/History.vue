@@ -1,10 +1,9 @@
 <template>
     <div class="history">
-        <p>This history page</p>
-        <div>
+        <!-- <div>
             <input type="text" v-model="search" >
-            <button class="search" @click="sendDate()">search</button>
-        </div>
+            <button  @click="sendDate()">search</button>
+        </div> -->
         <div>
             <card v-for="(item, index) in postCagd"
                 :title="item.title"
@@ -15,6 +14,7 @@
                 :date="item.date"
                 :key="'i'+index">   
             </card>
+
         </div>
         
 
@@ -22,13 +22,8 @@
 </template>
 
 <script>
-
+import postCard from './../components/postCard'
 export default {
-    data(){
-        return{
-            search: 'а',
-        }
-    },
     methods:{
         sendDate(){
             console.log('method /  ' + this.search );
@@ -38,14 +33,13 @@ export default {
         postCagd(){
             return this.$store.getters.filteredList;
         }
+    },
+    components:{
+      card: postCard,
     }
 }
 
 </script>
 
 <style lang="sass">
-.search
-    border: 1px solid #000
-    padding: 3px
-    display: inline-block
 </style>

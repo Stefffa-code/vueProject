@@ -41,6 +41,7 @@ export default {
                 case 'history' : return this.$store.getters.postsInHistory;
                 case 'likes' : return this.$store.getters.postsInLikes;
                 case 'postponed' : return this.$store.getters.postsInPostponed;
+                case 'search' : return this.$store.getters.filteredList;
             } 
         },
         

@@ -3,26 +3,27 @@
         <div class="top-bar__group">
              <fa-icon icon="bars" class="top-bar-icon menu-icon" @click="chengeShowMenu" />
             <div class="logo">
-                <span>youTube</span>
+                <span>youIm</span>
             </div>
         </div>
-        <div>
-            Search
-        </div>
 
-        <div class="top-bar__group">
-            <div class="top-bar__group mob-none">
+        <search>
+        </search>
+
+        <div class="top-bar__group mob-none">
+            <div class="top-bar__group ">
                 <fa-icon icon="video" class="top-bar-icon"/>
                 <fa-icon icon="th" class="top-bar-icon"/>
                 <fa-icon icon="bell" class="top-bar-icon"/>
             </div>            
-            <div class="user"></div>
+            <div class="user "></div>
         </div>
         
     </div>    
 </template>
 
 <script>
+import search from './../components/search'
 export default {
     data(){
         return{
@@ -39,6 +40,9 @@ export default {
         }
     },
     competed:{
+    },
+    components:{
+        search: search,
     }
 }
 </script>
@@ -46,7 +50,7 @@ export default {
 <style lang="sass">
 #top-bar
     border-bottom: 1px solid #d3d3d3
-    padding: 20px 3px
+    padding: 20px 0px
     display: flex
     justify-content: space-between
     
@@ -60,7 +64,7 @@ export default {
 
 
 .top-bar-icon
-    margin: 0 10px
+    margin-right: 10px 
     width: 20px !important
     height: 20px
 

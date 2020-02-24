@@ -47,6 +47,11 @@ const router = new VueRouter({
       name: 'Likes',
       component: () => import( '../views/Likes.vue')
     },
+    {
+      path: '/search',
+      name: 'Search',
+      component: () => import( '../views/searchPage.vue')
+    },
     
     {
       path: '/post/:id',

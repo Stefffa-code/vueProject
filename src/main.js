@@ -5,9 +5,9 @@ import store from './store'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import  { faUserSecret, faHouseDamage, faFire, faFilm, faBoxes, faHistory, faClock, faThumbsUp, faBell, faVideo, faTh, faBars} from '@fortawesome/free-solid-svg-icons'
+import  { faUserSecret, faHouseDamage, faFire, faFilm, faBoxes, faHistory, faClock, faThumbsUp, faBell, faVideo, faTh, faBars, faSearch} from '@fortawesome/free-solid-svg-icons'
 
-library.add( faUserSecret, faHouseDamage, faFire, faFilm, faBoxes, faHistory, faClock, faThumbsUp, faBell, faVideo, faTh, faBars )
+library.add( faUserSecret, faHouseDamage, faFire, faFilm, faBoxes, faHistory, faClock, faThumbsUp, faBell, faVideo, faTh, faBars, faSearch )
 Vue.component('fa-icon', FontAwesomeIcon)
 
 

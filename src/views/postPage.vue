@@ -23,7 +23,6 @@
                         :class="{'active':post.likes}" 
                         @click="chengeActive('like',post.likes)" 
                         />
-
                 </div>
                 <div class="postPage__description">
                     <p class="postPage__title"> {{ post.title }} </p> 
@@ -63,37 +62,26 @@ export default {
     
     data(){
         return{
-            idr: this.$router.currentRoute.params['id'],
+            idr: +this.$router.currentRoute.params['id'],
+            idp: Number,
             post: {},
             comments: [],
             isComments: Boolean,
-            commentsNo: 'Комментариев еще нет'
+            commentsNo: 'Комментариев еще нет',
         }
-    },
-    components:{
-        comment: comment,
-        panel: postPanel,
-    },
+    },    
     methods:{
         chengeActive(name, val){   
-            console.log('chengeActive ');
-            // this.post.likes = (val)? false : true; 
             let field;
+            
             switch(name){
-                case 'subscribe' : 
-                    field='subscribe'; 
-                    this.post.subscribe = (val)? false : true;  break;
-                case 'like' : 
-                    field='like'; 
-                    this.post.likes = (val)? false : true;  break;          
-                case 'library' : 
-                    field='library'; 
-                    this.post.library = (val)? false : true;  break;
-                case 'postponed' : 
-                    field='postponed';  
-                    this.post.postponed = (val)? false : true;  break;        
+                case 'subscribe' : field='subscribe'; break;                   
+                case 'like' :  field='like'; break;                              
+                case 'library' :  field='library';  break; 
+                case 'postponed' : field='postponed';   break;        
             }
-            this.$store.commit('chengeActive', {id:this.idr, field:field})
+            this.$store.commit('chengeActive', {id:this.idp, field:field})
+            
         },  
     },
     computed:{      
@@ -105,13 +93,16 @@ export default {
         },
         
     },
+    components:{
+        comment: comment,
+        panel: postPanel,
+    },
     created() {
         this.$store.commit('chengeIdPostView', this.idr );
         this.post = this.$store.getters.getPost;        
         this.comments = this.$store.getters.getPostComments;
         this.isComments = (this.comments !== undefined) ? true : false;
-        console.log(this.isComments);
-
+        this.idp = this.post.id;
     },
     
 }

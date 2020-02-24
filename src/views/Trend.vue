@@ -14,7 +14,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'trend',
   data(){
@@ -44,7 +43,6 @@ export default {
 
     }
   },
-  components: {
-  }
+  
 }
 </script>
